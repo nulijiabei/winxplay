@@ -468,18 +468,18 @@
 
 ```
 // 例：
-xplayctl -h # 帮助
-xplayctl -stop -all # 停止全部层
-xplayctl -stop -ids "10,11,12" # 停止指定层
-xplayctl -play -libName pic -path "/root/sample.jpg" # 显示图片
-xplayctl -play -libName qrcode -content "www.danoonetworks.com" # 显示二维码
-xplayctl -play -libName video -path "/root/sample.mp4" # 显示视频
-xplayctl -play -libName video -zIndex 10 -path "/root/sample.mp4" # 指定层显示视频
-xplayctl -play -libName toast -zIndex 3 -toast_type success -content "安装成功" -duration 5 # 信息提示框
-xplayctl -play -libName video -zIndex 10 -rect "0,0,1920,1080" -path "/root/sample.mp4" # 指定层与素材显示的位置与宽高
-xplayctl -play -libName scroll -zIndex 9 -speed 2 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 滚动字幕
-xplayctl -play -libName text -zIndex 9 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本
-xplayctl -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" -bgcolor "rgba(0,0,0,20%)" -font_size 14 -align center -style bold -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本及指定字体颜色与背景颜色及透明度字体大小等 ...
+winxplay/xplayctl.exe -h # 帮助
+winxplay/xplayctl.exe -stop -all # 停止全部层
+winxplay/xplayctl.exe -stop -ids "10,11,12" # 停止指定层
+winxplay/xplayctl.exe -play -libName pic -path "/root/sample.jpg" # 显示图片
+winxplay/xplayctl.exe -play -libName qrcode -content "www.danoonetworks.com" # 显示二维码
+winxplay/xplayctl.exe -play -libName video -path "/root/sample.mp4" # 显示视频
+winxplay/xplayctl.exe -play -libName video -zIndex 10 -path "/root/sample.mp4" # 指定层显示视频
+winxplay/xplayctl.exe -play -libName toast -zIndex 3 -toast_type success -content "安装成功" -duration 5 # 信息提示框
+winxplay/xplayctl.exe -play -libName video -zIndex 10 -rect "0,0,1920,1080" -path "/root/sample.mp4" # 指定层与素材显示的位置与宽高
+winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -speed 2 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 滚动字幕
+winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本
+winxplay/xplayctl.exe -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" -bgcolor "rgba(0,0,0,20%)" -font_size 14 -align center -style bold -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本及指定字体颜色与背景颜色及透明度字体大小等 ...
 ```
 
 ---
