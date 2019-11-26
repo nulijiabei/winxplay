@@ -46,14 +46,36 @@
 ### 安装方法
  
  ***1. 下载程序***
+ 
  ```
  git clone https://github.com/nulijiabei/winxplay.git 或 https://gitee.com/nljb/winxplay.git
  ```
 
  ***2. 运行程序***
  
+ | 参数 | 默认 | 说明 |
+ | --- | --- | --- |
+ | -R x,y,width,height | 0,0,1920,1080 | 分辨率设置 |
+ | -fps n | 30 | 帧率设置 |
+ | -noloop | 无 | 视频在播放到结尾时是否停留在最后一帧 |
+ | -mute | 无 | 静音设置 |
+ | -sample_rate n | 44100 | 音频采样频率设置 |
+ | -cpuid | 无 | 显示CPUID |
+ | -version | 无 | 版本号 |
+ 
  ```
- 进入 winxplay 目录，直接运行 winxplay.exe 即可
+ // 分辨率 1920x1080 【默认】
+ // 帧率 30fps 【默认】
+ // 音频采样率 44100 【默认】
+ // 视频循环播放【默认】
+ // 播放声音【默认】
+ winxplay/winxplay.exe
+ 
+ // 分辨率设置 1280x720 
+ // 音频采样率设置 48000 
+ // 视频循环设置 视频在播放到结尾时停留在最后一帧
+ // 【未设置则使用默认设置】
+ winxplay/winxplay.exe -R 0,0,1280,720 -sample_rate 48000 -noloop
  ```
  
  ***3. 播放测试***
