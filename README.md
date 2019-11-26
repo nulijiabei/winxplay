@@ -48,7 +48,9 @@
  ***1. 下载程序***
  
  ```
- git clone https://github.com/nulijiabei/winxplay.git 或 https://gitee.com/nljb/winxplay.git
+ git clone https://github.com/nulijiabei/winxplay.git 
+ 或 
+ git clone https://gitee.com/nljb/winxplay.git
  ```
 
  ***2. 运行程序***
