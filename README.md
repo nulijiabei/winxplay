@@ -337,8 +337,13 @@
  | speed       | 1(每帧向前移动N像素) | 移动速度 |
  | content     | ABCDEFGHIJKLMNOPQRSTUVWXYZ | 文本内容 |
  | orientation | horizontal、vertical | 移动方向 |
- | width       | vertical 有效 / horizontal 无效 = screen.width | 宽有效性 |
- | height      | horizontal 有效 / vertical 无效 = screen.height | 高有效性 |
+ 
+ | 参数有效性(scroll) | 值 | 说明 |
+ | --- | --- | --- |
+ | width  | vertical 有效 / horizontal 无效 = screen.width | 宽有效性 |
+ | height | horizontal 有效 / vertical 无效 = screen.height | 高有效性 |
+ | left   | vertical 有效 / horizontal 无效 = 0 | 距左有效性 |
+ | top    | horizontal 有效 / vertical 无效 = 0 | 距顶有效性 |
  
  ```
  // 显示滚动字幕
@@ -349,6 +354,7 @@
     "start": -1,
     "params": {
        "top": 0,
+       "left": 0,
        "width": 150,
        "height": 50,
        "zIndex": 5,
