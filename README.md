@@ -115,7 +115,7 @@
  
  ***4. 查看日志***
  ```
- winxplay.log
+ winxplay/winxplay.log
  ```
 
 ---
