@@ -93,24 +93,10 @@
  ***3. 播放测试***
 
  ```
+ // 测试素材
+ copy xplay\video\sample.mp4 E:\sample.mp4
  // 测试指令
- > telnet 127.0.0.1 8700
- Trying 127.0.0.1...
- Connected to 127.0.0.1.
- Escape character is '^]'.
- 
- // 指令内容
- {
-    "libName": "video",
-    "params": {
-        "path": "/root/sample.mp4",
-        "width": 1920,
-        "height": 1080,
-        "zIndex": 10
-    },
-    "type": "play"
- }
- #End
+ winxplay/xplayctl.exe -play -libName video -path "E:\sample.mp4"
  ```
  
  ***4. 查看日志***
