@@ -171,15 +171,31 @@ winxplay/xplayctl.exe -h # 帮助
 winxplay/xplayctl.exe -stop -all # 停止全部层
 winxplay/xplayctl.exe -stop -ids "10,11,12" # 停止指定层
 winxplay/xplayctl.exe -play -libName pic -path "/root/sample.jpg" # 显示图片
-winxplay/xplayctl.exe -play -libName qrcode -zIndex 5 -content "www.danoonetworks.com" # 显示二维码
-winxplay/xplayctl.exe -play -libName datetime -zIndex 9 -rect "0,0,500,50" -font_size 30 -align center # 显示日期时间
-winxplay/xplayctl.exe -play -libName toast -zIndex 3 -toast_type success -content "安装成功" -duration 5 # 显示信息提示框
-winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -speed 2 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示滚动字幕
 winxplay/xplayctl.exe -play -libName video -path "/root/sample.mp4" # 显示视频
 winxplay/xplayctl.exe -play -libName video -zIndex 10 -path "/root/sample.mp4" # 显示视频
-winxplay/xplayctl.exe -play -libName video -zIndex 10 -rect "0,0,1920,1080" -path "/root/sample.mp4" # 显示视频
+winxplay/xplayctl.exe -play -libName qrcode -zIndex 5 -content "www.danoonetworks.com" # 显示二维码
+winxplay/xplayctl.exe -play -libName datetime -zIndex 9 -rect "0,0,500,50" -font_size 30 -align center # 显示日期时间
+winxplay/xplayctl.exe -play -libName toast -zIndex 3 -content "安装成功" -toast_type success -duration 5 # 显示信息提示框
 winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本
-winxplay/xplayctl.exe -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" -bgcolor "rgba(0,0,0,20%)" -font_size 14 -align center -style bold -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本
+winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -rect "0,0,-1,50" -content "专为树莓派设计的多媒体播放器" # 显示滚动字幕
+```
+
+```
+winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -rect "0,0,-1,50" \
+                      -content "专为树莓派设计的多媒体播放器" \
+                      -speed 2 \
+                      -orientation horizontal 
+winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -rect "0,0,500,-1" \
+                      -content "专为树莓派设计的多媒体播放器" \
+                      -speed 2 \
+                      -orientation vertical 
+winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
+                      -content "专为树莓派设计的多媒体播放器" \
+                      -color "rgba(0,128,0,100%)" \
+                      -bgcolor "rgba(0,0,0,20%)" \
+                      -font_size 14 \
+                      -align center \
+                      -style bold  
 ```
 
 ---
