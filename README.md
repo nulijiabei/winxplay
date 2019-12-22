@@ -440,7 +440,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" 
  {
     "type": "play",
     "id": "Z9_Play_1572344489512",
-    "libName": "text",
+    "libName": "datetime",
     "start": -1,
     "params": {
        "top": 0,
