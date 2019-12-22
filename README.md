@@ -1,7 +1,7 @@
 # winxplay
 专为Windows系统设计的多媒体播放器 ...
 
-支持(视频、音频、流媒体、图片、摄像头、动画、文本、滚动字幕、二维码)
+支持(视频、音频、流媒体、图片、摄像头、动画、文本、滚动字幕、日期时间、二维码)
 
 ---
 
@@ -30,7 +30,7 @@
 
 1. 支持自定义播放器分辨率、帧率(FPS)、音频采样率(Sample Rate)
 2. 支持使用(TCP)连接播放器发送指令控制(播放、覆盖、停止、等)
-3. 支持(视频、音频、流媒体、图片、摄像头、动画、文本、滚动字幕、二维码)素材播放
+3. 支持(视频、音频、流媒体、图片、摄像头、动画、文本、滚动字幕、日期时间、二维码)素材播放
 4. 支持(视频)多种格式(例如：MP4、AVI、MOV、等)基于H264的视频编码，音频(AAC)
 5. 支持(图片)JPG与PNG格式
 6. 支持(动画)GIF格式
@@ -39,18 +39,19 @@
 9. ~~支持(摄像头)设备(Raspberry Pi Camera V2)~~
 10. 支持(视频、图片)无黑场切换播放
 11. 支持(视频)音频同步(视频帧时间戳与音轨帧时间戳)播放
-12. 支持(视频、流媒体、图片、摄像头、动画、文本、滚动字幕、二维码)多层(Overlay)播放
+12. 支持(视频、流媒体、图片、摄像头、动画、文本、滚动字幕、日期时间、二维码)多层(Overlay)播放
 13. 支持(文本)自定义(字体大小、字体颜色、背景颜色、透明度、对齐方式、风格样式、多行段落)
 14. 支持(滚动字幕)自定义(字体大小、字体颜色、透明度、风格样式、移动速度、移动方向)
-15. 支持自定义布局(通过多层功能可以实现多种自定义布局)
-16. 支持自定义(视频)是否循环播放(视频在播放到结尾时是否停留在最后一帧)
-17. 支持自定义素材尺寸(width，height)，任意拉伸缩放素材尺寸播放
-18. 支持自定义素材位置(x，y)播放，任意定义素材播放位置
-19. 支持自定义素材横竖屏播放
-20. 支持自定义素材开始播放时间(多个播放器间可以实现同步播放)
-21. 支持静音播放
-22. 支持(信息提示框)自定义提示文本及多种状态标识(notice、success、warning、error)
-23. 支持(文本)自定义TTC字体(可以通过自定义字体来实现不同效果的文本样式)
+15. 支持(信息提示框)自定义提示文本及多种状态标识(notice、success、warning、error)
+16. 支持(日期时间)自定义(字体大小、字体颜色、背景颜色、透明度、对齐方式、风格样式)
+17. 支持(字体)自定义(可以通过自定义指定TTC字体来实现不同效果的文本样式)
+18. 支持自定义布局(通过多层功能可以实现多种自定义布局)
+19. 支持自定义(视频)是否循环播放(视频在播放到结尾时是否停留在最后一帧)
+20. 支持自定义素材尺寸(width，height)，任意拉伸缩放素材尺寸播放
+21. 支持自定义素材位置(x，y)播放，任意定义素材播放位置
+22. 支持自定义素材横竖屏播放
+23. 支持自定义素材开始播放时间(多个播放器间可以实现同步播放)
+24. 支持静音播放
 
 ---
 ### 安装方法
@@ -166,19 +167,19 @@
 | ids | 无 | 停止指定层 |
 
 ```
-例：
 winxplay/xplayctl.exe -h # 帮助
 winxplay/xplayctl.exe -stop -all # 停止全部层
 winxplay/xplayctl.exe -stop -ids "10,11,12" # 停止指定层
 winxplay/xplayctl.exe -play -libName pic -path "/root/sample.jpg" # 显示图片
-winxplay/xplayctl.exe -play -libName qrcode -content "www.danoonetworks.com" # 显示二维码
+winxplay/xplayctl.exe -play -libName qrcode -zIndex 5 -content "www.danoonetworks.com" # 显示二维码
+winxplay/xplayctl.exe -play -libName datetime -zIndex 9 -rect "0,0,500,50" -font_size 30 -align center # 显示日期时间
+winxplay/xplayctl.exe -play -libName toast -zIndex 3 -toast_type success -content "安装成功" -duration 5 # 显示信息提示框
+winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -speed 2 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示滚动字幕
 winxplay/xplayctl.exe -play -libName video -path "/root/sample.mp4" # 显示视频
-winxplay/xplayctl.exe -play -libName video -zIndex 10 -path "/root/sample.mp4" # 指定层显示视频
-winxplay/xplayctl.exe -play -libName toast -zIndex 3 -toast_type success -content "安装成功" -duration 5 # 信息提示框
-winxplay/xplayctl.exe -play -libName video -zIndex 10 -rect "0,0,1920,1080" -path "/root/sample.mp4" # 指定层与素材显示的位置与宽高
-winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -speed 2 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 滚动字幕
+winxplay/xplayctl.exe -play -libName video -zIndex 10 -path "/root/sample.mp4" # 显示视频
+winxplay/xplayctl.exe -play -libName video -zIndex 10 -rect "0,0,1920,1080" -path "/root/sample.mp4" # 显示视频
 winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本
-winxplay/xplayctl.exe -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" -bgcolor "rgba(0,0,0,20%)" -font_size 14 -align center -style bold -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本及指定字体颜色与背景颜色及透明度字体大小等 ...
+winxplay/xplayctl.exe -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" -bgcolor "rgba(0,0,0,20%)" -font_size 14 -align center -style bold -rect "0,0,1920,50" -content "专为树莓派设计的多媒体播放器" # 显示文本
 ```
 
 ---
@@ -199,6 +200,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" 
  | qrcode | 二维码 |
  | text | 文本 |
  | scroll | 滚动字幕 |
+ | datetime | 日期时间 |
  | background | 透明背景 |
  
  ```
@@ -207,7 +209,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" 
      "id": "Z10_Play_1557737960000", // 唯一标记(自定义唯一标识)【非必填】
      "type": "play",                 // 指令类型【必填】
      "start": -1,                    // 开始时间(默认：-1，立即播放，本地毫秒时间戳)【非必填】
-     "libName": "video",             // 素材类型(video、pic、camera、gif、qrcode、text、scroll）【必填】
+     "libName": "video",             // 素材类型(video、pic、camera、gif、qrcode、text、scroll ...）【必填】
      "params": {                     // 参数集合【必填】
          "zIndex": 10,               // 层(支持多层播放，层数越小画面越靠前)【必填】
          "path": "/root/sample.mp4", // 素材路径【必填】
@@ -424,6 +426,40 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -color "rgba(0,128,0,100%)" 
  #End
  ```
  
+ | 日期时间(datetime) | 值 | 说明 |
+ | --- | --- | --- |
+ | color     | rgba(0, 128, 0, 100%) | 文本颜色及透明度 |
+ | bgcolor   | rgba(0, 0, 0, 0%)     | 背景颜色及透明度 |
+ | font_ttf  | /etc/xplay/simsun.ttc | 指定字体 |
+ | font_size | 30                    | 字体大小 |
+ | align     | center、right、left   | 对齐方式 |
+ | style     | normal、bold、italic、underline、strikethrough | 文本样式 |
+ 
+ ```
+ // 显示日期时间
+ {
+    "type": "play",
+    "id": "Z9_Play_1572344489512",
+    "libName": "text",
+    "start": -1,
+    "params": {
+       "top": 0,
+       "left": 0,
+       "width": 500,
+       "height": 50,
+       "zIndex": 9,
+       "screen_rotate": 0,
+       "screen_mode": "landscape",
+       "color": "rgba(0, 128, 0, 100%)",
+       "bgcolor": "rgba(0, 0, 0, 20%)",
+       "font_size": 30,
+       "align": "center",
+       "style": "bold"
+    }
+ }
+ #End
+ ```
+
  | 透明背景(background) | 值 | 说明 |
  | --- | --- | --- |
  | bgcolor   | rgba(0, 0, 0, 20%) | 背景颜色及透明度 |
