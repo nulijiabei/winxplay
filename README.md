@@ -119,58 +119,27 @@
 ---
 ### 命令行工具
 
-| 命令行参数(type) | 默认值 | 说明 |
+| 命令行参数(addr) | 默认值 | 说明 |
 | --- | --- | --- |
-| addr    | 127.0.0.1:8700 | 网络地址及端口 |
-| id      | 自动           | 唯一标识 |
-| start   | -1             | 开始时间 |
-| libName | 无             | 素材类型 |
-| play    | 无             | 指令类型(播放) |
-| stop    | 无             | 指令类型(停止) |
+| -addr | 127.0.0.1:8700 | 网络地址及端口 |
 
-| 命令行参数(play) | 默认值 | 可选参数 | 说明 |
-| --- | --- | --- | --- |
-| zIndex        | 10            | 1 - 999             | 层 |
-| rect          | 0,0,1920,1080 | x,y,width,height    | 素材显示尺寸与位置 |
-| screen_mode   | landscape     | landscape、portrait | 屏幕模式 |
-| screen_rotate | 0             | 0、180、90、270     | 旋转角度 |
-| path          | 无            | 无                  | 素材路径 |
-| content       | 无            | 无                  | 数据内容 |
-
-| 命令行参数(text) | 默认值 | 可选参数 | 说明 |
-| --- | --- | --- | --- |
-| color     | rgba(0,128,0,100%) | 无 | 文本颜色及透明度 |
-| bgcolor   | rgba(0,0,0,20%)    | 无 | 背景颜色及透明度 |
-| font_size | 14                 | 无 | 字体大小 |
-| align     | center             | center、right、left | 对齐方式 |
-| style     | normal             | normal、bold、italic、underline、strikethrough | 文本样式 |
-
-| 命令行参数(scroll) | 默认值 | 可选参数  | 说明 |
-| --- | --- | --- | --- |
-| speed | 1 | 无 | 移动速度 |
-| orientation | horizontal | horizontal、vertical | 移动方向 |
-
-| 命令行参数(camera) | 默认值 | 说明 |
+| 命令行参数(play) | 默认值 | 说明 |
 | --- | --- | --- |
-| device       | /dev/video0 | 设备地址 |
-| camera_width | 1280        | 摄像头 video_size 宽 |
-| camera_height| 720         | 摄像头 video_size 高 |
-
-| 命令行参数(toast) | 默认值 | 可选参数 | 说明 |
-| --- | --- | --- | --- |
-| toast_type | notice | notice、success、warning、error | 消息类型 |
-| duration   | 0      | 无 | 持续时间(s) |
+| -play | [控制指令](#控制指令) | 播放指令 |
+| -rect | 0,0,1920,1080 | 显示区域与位置 |
 
 | 命令行参数(stop) | 默认值 | 说明 |
 | --- | --- | --- |
-| all | 无 | 停止全部层 |
-| ids | 无 | 停止指定层 |
+| -stop | 无 | 停止指令 |
+| -all  | 无 | 停止全部层 |
+| -ids  | 无 | 停止指定层 |
 
 ```
 winxplay/xplayctl.exe -h # 帮助
 winxplay/xplayctl.exe -stop -all # 停止全部层
 winxplay/xplayctl.exe -stop -ids "10,11,12" # 停止指定层
 winxplay/xplayctl.exe -play -libName pic -path "/root/sample.jpg" # 显示图片
+winxplay/xplayctl.exe -play -libName gif -path "/root/sample.gif" # 显示动画
 winxplay/xplayctl.exe -play -libName video -path "/root/sample.mp4" # 显示视频
 winxplay/xplayctl.exe -play -libName video -zIndex 10 -path "/root/sample.mp4" # 显示视频
 winxplay/xplayctl.exe -play -libName qrcode -zIndex 5 -content "www.danoonetworks.com" # 显示二维码
