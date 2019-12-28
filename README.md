@@ -268,6 +268,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  | --- | --- | 
  | play | 播放 |
  | stop | 停止 |
+ | move | 移动 |
  
  | 素材类型(libName) | 说明 |
  | --- | --- |
