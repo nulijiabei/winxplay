@@ -609,13 +609,11 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  ```
  // 移动位置
  {
-   "id": "MOVE_Z10_1577525151",
    "type": "move",
-   "start": -1,
    "params": {
+     "zIndex": 10,
      "left": 100,
-     "top": 100,
-     "zIndex": 10
+     "top": 100
    }
  }
  #End
