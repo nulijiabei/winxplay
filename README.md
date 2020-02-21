@@ -291,6 +291,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  | text | 文本 |
  | scroll | 滚动字幕 |
  | datetime | 日期时间 |
+ | order | 序列播放 |
  
  ```
  // 指令说明
@@ -314,8 +315,8 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  ```
  
  ```
-  // 显示视频
-  {
+ // 显示视频
+ {
      "id": "Z10_Play_1557737960000",
      "type": "play",
      "start": -1,
@@ -373,6 +374,43 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
     }
  }
  #End
+ ```
+ 
+ ```
+ // 序列播放
+ {
+    "type": "play",
+    "id": "PLAY_Z10_LIST_1582276422",
+    "libName": "order",
+    "start": -1,
+    "params": {
+        "zIndex": 10,
+        "top": 0,
+        "left": 0,
+        "width": 1920,
+        "height": 1080,
+        "screen_mode": "landscape",
+        "screen_rotate": 0,
+        "duration": 10
+    },
+    "deps": [{
+        "duration": 0,
+        "path": "E:/a1.mp4",
+        "type": "video"
+    }, {
+        "duration": 10,
+        "path": "E:/b1.jpg",
+        "type": "pic"
+    }, {
+        "duration": 10,
+        "path": "E:/a2.mp4",
+        "type": "video"
+    }, {
+        "duration": 10,
+        "path": "E:/b2.jpg",
+        "type": "pic"
+    }]
+ }
  ```
  
  | 信息提示框(toast) | 值 | 说明 |
