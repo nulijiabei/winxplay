@@ -159,9 +159,9 @@ winxplay/simsun.ttc        默认字体文件
  | 命令行参数(play) | 默认值 | 可选参数 | 说明 |
  | --- | --- | --- | --- |
  | -start | -1 | 无 | 开始时间(ms) |
- | -libName | 无 | video、pic、gif、qrcode、camera、text、scroll、datetime、toast | 素材类型 |
+ | -libName | 无 | video、pic、sequence、gif、qrcode、camera、text、scroll、datetime、toast | 素材类型 |
  
- | 命令行参数(order) | 默认值 | 可选参数 | 说明 |
+ | 命令行参数(sequence) | 默认值 | 可选参数 | 说明 |
  | --- | --- | --- | --- |
  | -zIndex        | 10            | 0 - 999               | 层 |
  | -rect          | 0,0,1920,1080 | left,top,width,height |	素材显示尺寸与位置 |
@@ -301,7 +301,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  | text | 文本 |
  | scroll | 滚动字幕 |
  | datetime | 日期时间 |
- | order | 序列播放 |
+ | sequence | 序列播放 |
  
  ```
  // 指令说明
@@ -309,7 +309,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
      "id": "Z10_Play_1557737960000", // 唯一标记(自定义唯一标识)【非必填】
      "type": "play",                 // 指令类型【必填】
      "start": -1,                    // 开始时间(默认：-1，立即播放，本地毫秒时间戳)【非必填】
-     "libName": "video",             // 素材类型(video、pic、order、camera、gif、qrcode、text、scroll)【必填】
+     "libName": "video",             // 素材类型(video、pic、sequence、camera、gif、qrcode、text、scroll)【必填】
      "params": {                     // 参数集合【必填】
          "zIndex": 10,               // 层(支持多层播放，层数越小画面越靠前)【必填】
          "path": "/root/sample.mp4", // 素材路径【必填】
@@ -386,7 +386,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  #End
  ```
  
- | 序列播放(order) | 说明 |
+ | 序列播放(sequence) | 说明 |
  | --- | --- |
  | path | 多个素材路径通过逗号(,)分隔 |
  | duration | 非视频素材所播放的时间(s) |
@@ -395,8 +395,8 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  // 序列播放(格式一)
  {
     "type": "play",
-    "id": "PLAY_Z10_LIST_1582276422",
-    "libName": "order",
+    "id": "PLAY_Z10_1582276422",
+    "libName": "sequence",
     "start": -1,
     "params": {
         "zIndex": 10,
@@ -413,7 +413,7 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  #End
  ```
  
- | 序列播放(order) | 说明 |
+ | 序列播放(sequence) | 说明 |
  | --- | --- |
  | deps[] | 序列数据 |
  | deps[].path | 素材路径 |
@@ -424,8 +424,8 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  // 序列播放(格式二)
  {
     "type": "play",
-    "id": "PLAY_Z10_LIST_1582276422",
-    "libName": "order",
+    "id": "PLAY_Z10_1582276422",
+    "libName": "sequence",
     "start": -1,
     "params": {
         "zIndex": 10,
