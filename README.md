@@ -376,8 +376,42 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
  #End
  ```
  
+ | 序列播放(order) | 说明 |
+ | --- | --- |
+ | path | 多个素材路径通过逗号(,)分隔 |
+ | duration | 非视频素材所播放的时间(s) |
+ 
  ```
- // 序列播放
+ // 序列播放(格式一)
+ {
+    "type": "play",
+    "id": "PLAY_Z10_LIST_1582276422",
+    "libName": "order",
+    "start": -1,
+    "params": {
+        "zIndex": 10,
+        "path": "/root/a1.mp4,/root/b1.jpg,/root/a2.mp4,/root/b2.jpg",
+        "duration": 10,
+        "top": 0,
+        "left": 0,
+        "width": 1920,
+        "height": 1080,
+        "screen_mode": "landscape",
+        "screen_rotate": 0
+    }
+ }
+ #End
+ ```
+ 
+ | 序列播放(order) | 说明 |
+ | --- | --- |
+ | deps | 序列数据 |
+ | path | 素材路径 |
+ | type | 素材对应的 libName(video、pic) |
+ | duration | 非视频素材所播放的时间(s) |
+ 
+ ```
+ // 序列播放(格式二)
  {
     "type": "play",
     "id": "PLAY_Z10_LIST_1582276422",
@@ -390,24 +424,23 @@ winxplay/xplayctl.exe -play -libName text -zIndex 9 -rect "0,0,1920,50" \
         "width": 1920,
         "height": 1080,
         "screen_mode": "landscape",
-        "screen_rotate": 0,
-        "duration": 10
+        "screen_rotate": 0
     },
     "deps": [{
         "duration": 0,
-        "path": "E:/a1.mp4",
+        "path": "/root/a1.mp4",
         "type": "video"
     }, {
         "duration": 10,
-        "path": "E:/b1.jpg",
+        "path": "/root/b1.jpg",
         "type": "pic"
     }, {
         "duration": 10,
-        "path": "E:/a2.mp4",
+        "path": "/root/a2.mp4",
         "type": "video"
     }, {
         "duration": 10,
-        "path": "E:/b2.jpg",
+        "path": "/root/b2.jpg",
         "type": "pic"
     }]
  }
