@@ -264,6 +264,9 @@ winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -rect "0,0,-1,50" -content
 ```
 
 ```
+winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
+                      -path "/root/a1.mp4,/root/b1.jpg,/root/a2.mp4" \
+                      -duration 5
 winxplay/xplayctl.exe -play -libName scroll -zIndex 9 -rect "0,0,-1,50" \
                       -content "专为树莓派设计的多媒体播放器" \
                       -speed 2 \
