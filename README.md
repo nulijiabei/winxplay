@@ -145,6 +145,7 @@ winxplay/simsun.ttc        默认字体文件
  | -play | 播放指令 |
  | -stop | 停止指令 |
  | -move | 移动指令 |
+ | -snap | 截屏指令 |
  
  | 命令行参数(stop) | 说明 |
  | --- | --- |
