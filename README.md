@@ -156,6 +156,10 @@ winxplay/simsun.ttc        默认字体文件
  | -zIndex | 10  | 0 - 999  | 层 |
  | -rect   | 0,0 | left,top |	素材显示位置 |
  
+ | 命令行参数(snap) | 默认值 | 说明 |
+ | --- | --- | --- |
+ | -path | snap.jpg | 截屏保存路径 |
+ 
  | 命令行参数(play) | 默认值 | 可选参数 | 说明 |
  | --- | --- | --- | --- |
  | -start | -1 | 无 | 开始时间(ms) |
@@ -292,6 +296,7 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  | play | 播放 |
  | stop | 停止 |
  | move | 移动 |
+ | snap | 截屏 |
  
  | 素材类型(libName) | 说明 |
  | --- | --- |
@@ -715,6 +720,17 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  #End
  ```
  
+ ```
+ // 截屏
+ {
+   "type": "snap",
+   "params": {
+     "path": "/dev/shm/snap.jpg"
+   }
+ }
+ #End
+ ```
+ 
 ---
 ### 许可信息
 
@@ -725,7 +741,7 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
 
 >LOG4QT 使用 APACHE LICENSE VERSION 2.0 https://www.apache.org/licenses/LICENSE-2.0.html  
 
->SDL 与 SDL_ttf 使用 zlib 许可 https://www.zlib.net/zlib_license.html  
+>SDL 与 SDL_ttf 和 SDL_image 使用许可 https://www.zlib.net/zlib_license.html  
 >授予任何人出于任何目的使用此软件的权限，包括商业应用，并对其进行更改和重新分发  
 
 >FFmpeg 使用 GNU较小通用公共许可证(LGPL) 许可 http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html  
