@@ -254,8 +254,11 @@ func (this *XPlay) move() error {
 }
 
 func (this *XPlay) snap() error {
+	params := make(map[string]interface{})
+	params["path"] = *path
 	data := make(map[string]interface{})
 	data["type"] = "snap"
+	data["params"] = params
 	return this.send(data)
 }
 
