@@ -255,6 +255,7 @@ winxplay/simsun.ttc        默认字体文件
 winxplay/xplayctl.exe -h # 帮助
 winxplay/xplayctl.exe -stop -all # 停止全部层
 winxplay/xplayctl.exe -stop -ids "10,11,12" # 停止指定层
+winxplay/xplayctl.exe -snap -path "E:/snap.jpg" # 截屏
 winxplay/xplayctl.exe -move -zIndex 10 -rect 100,100 # 移动位置
 winxplay/xplayctl.exe -play -libName pic -path "/root/sample.jpg" # 显示图片
 winxplay/xplayctl.exe -play -libName gif -path "/root/sample.gif" # 显示动画
