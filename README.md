@@ -125,7 +125,7 @@ winxplay/simsun.ttc        默认字体文件
 
  ```
  // 注意：需要统一视频素材的帧率与音频采样率并设置到启动参数中 ...
- /usr/bin/xplay -fps 30 -sample_rate 44100
+ winxplay/xplayctl.exe -fps 30 -sample_rate 44100
  ```
  
 ---
