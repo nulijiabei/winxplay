@@ -31,7 +31,7 @@
 ### 目录结构
 
 ```
-winxplay/xplayrun.bat      启动脚本(可配置
+winxplay/xplayrun.bat      启动脚本(可配置启动参数)
 winxplay/xplay.exe         主程序
 winxplay/xplayctl.exe      命令行工具
 winxplay/log4qt.properties 日志配置文件
