@@ -89,20 +89,19 @@ winxplay/simsun.ttc        默认字体文件
  | -sample_rate n | 44100 | 音频采样频率设置 |
  | -cpuid | 无 | 显示CPUID |
  | -version | 无 | 版本号 |
+ | -playing | 无 | 播放测试 |
  
  ```
  // 分辨率 1920x1080 【默认】
  // 帧率 30fps 【默认】
  // 音频采样率 44100 【默认】
- // 视频循环播放【默认】
- // 播放声音【默认】
  winxplay/winxplay.exe
  
- // 分辨率设置 1280x720 
+ // 分辨率设置 1920x1080 
+ // 帧率 30fps
  // 音频采样率设置 48000 
- // 视频循环设置 视频在播放到结尾时停留在最后一帧
  // 【未设置则使用默认设置】
- winxplay/winxplay.exe -R 0,0,1280,720 -sample_rate 48000 -noloop
+ winxplay/winxplay.exe -R 0,0,1920,1080 -fps 30 -sample_rate 48000
  ```
  
  ***3. 播放测试***
@@ -111,7 +110,7 @@ winxplay/simsun.ttc        默认字体文件
  // 测试素材
  copy xplay\video\sample.mp4 E:\sample.mp4
  // 测试指令
- winxplay/xplayctl.exe -play -libName video -path "E:\sample.mp4"
+ winxplay/winxplay.exe -playing E:\sample.mp4
  ```
  
  ***4. 查看日志***
