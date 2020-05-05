@@ -172,7 +172,7 @@ winxplay/simsun.ttc        默认字体文件
  | 命令行参数(move) | 默认值 | 可选参数 | 说明 |
  | --- | --- | --- | --- |
  | -zIndex | 10  | 0 - 999  | 层 |
- | -rect   | -   | left,top,width,height |	素材显示尺寸与位置 |
+ | -rect   | 0,0,1920,1080  | left,top,width,height |	素材显示尺寸与位置 |
  
  | 命令行参数(snap) | 默认值 | 说明 |
  | --- | --- | --- |
