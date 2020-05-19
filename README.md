@@ -75,9 +75,9 @@ winxplay/simsun.ttc        默认字体文件
  ***1. 下载程序***
  
  ```
- git clone https://github.com/nulijiabei/winxplay.git -b v1.0.15.v20200505 # (最新发布版请查看标签)
+ git clone https://github.com/nulijiabei/winxplay.git -b v1.0.16.v20200518 # (最新发布版请查看标签)
  或 
- git clone https://gitee.com/nljb/winxplay.git -b v1.0.15.v20200505 # (最新发布版请查看标签)
+ git clone https://gitee.com/nljb/winxplay.git -b v1.0.16.v20200518 # (最新发布版请查看标签)
  ```
 
  ***2. 运行程序***
