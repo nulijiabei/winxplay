@@ -147,11 +147,16 @@ winxplay/simsun.ttc        默认字体文件
  | -stop | 停止指令 |
  | -move | 移动指令 |
  | -snap | 截屏指令 |
+ | -query | 查询指令 |
+ 
+ | 命令行参数(query) | 说明 |
+ | --- | --- |
+ | -all | 查询全部层 |
  
  | 命令行参数(stop) | 说明 |
  | --- | --- |
- | -all  | 停止全部层 |
- | -ids  | 停止指定层 |
+ | -all | 停止全部层 |
+ | -ids | 停止指定层 |
  
  | 命令行参数(move) | 默认值 | 可选参数 | 说明 |
  | --- | --- | --- | --- |
@@ -256,6 +261,7 @@ winxplay/simsun.ttc        默认字体文件
 ```
 winxplay/xplayctl.exe -h # 帮助
 winxplay/xplayctl.exe -stop -all # 停止全部层
+winxplay/xplayctl.exe -query -all # 查询全部层
 winxplay/xplayctl.exe -stop -ids "10,11,12" # 停止指定层
 winxplay/xplayctl.exe -snap -path "E:/snap.jpg" # 截屏
 winxplay/xplayctl.exe -move -zIndex 10 -rect 100,100,500,500 # 移动与改变
@@ -300,6 +306,7 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  | stop | 停止 |
  | move | 移动 |
  | snap | 截屏 |
+ | query | 查询 |
  
  | 素材类型(libName) | 说明 |
  | --- | --- |
@@ -336,21 +343,39 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  
  ```
+ // 指令结果说明
+ {
+    "ok" : false,            // 指令执行失败 【必返回】
+    "data" : "错误信息"      // 指令失败信息 【非必返回】
+ }
+ #End
+ ```
+ 
+ ```
+ // 指令结果说明
+ {
+    "ok" : true,             // 指令执行成功 【必返回】
+    "data" : ...             // 指令对应格式 【非必返回】(例如：查询指令结果时此处返回查询结果)
+ }
+ #End
+ ```
+ 
+ ```
  // 显示视频
  {
-     "id": "Z10_Play_1557737960000",
-     "type": "play",
-     "start": -1,
-     "libName": "video",
-     "params": {
-         "zIndex": 10,
-         "path": "/root/sample.mp4",
-         "left": 0,
-         "top": 0,
-         "width": 1920,
-         "height": 1080,
-         "screen_mode": "landscape",
-         "screen_rotate": 0
+     "id":"Z10_Play_1557737960000",
+     "type":"play",
+     "start":-1,
+     "libName":"video",
+     "params":{
+         "zIndex":10,
+         "path":"/root/sample.mp4",
+         "left":0,
+         "top":0,
+         "width":1920,
+         "height":1080,
+         "screen_mode":"landscape",
+         "screen_rotate":0
      }
  }
  #End
@@ -359,19 +384,19 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示流媒体(http)
  {
-    "id": "Z10_Play_1557737960000",
-    "libName": "video",
-    "start": -1,
-    "type": "play",
-    "params": {
-        "path": "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8",
-        "height": 1080,
-        "width": 1920,
-        "left": 0,
-        "top": 0,
-        "screen_mode": "landscape",
-        "screen_rotate": 0,
-        "zIndex": 10
+     "id":"Z10_Play_1557737960000",
+     "libName":"video",
+     "start":-1,
+     "type":"play",
+     "params":{
+         "path":"http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8",
+         "height":1080,
+         "width":1920,
+         "left":0,
+         "top":0,
+         "screen_mode":"landscape",
+         "screen_rotate":0,
+         "zIndex":10
      }
  }
  ```
@@ -379,20 +404,20 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示图片
  {
-    "id": "Z10_Play_1556637960000",
-    "type": "play",
-    "start": -1,
-    "libName": "pic",
-    "params": {
-        "zIndex": 10,
-        "path": "/root/cat.jpg",
-        "top": 0,
-        "left": 0,
-        "height": 1080,
-        "width": 1920,
-        "screen_mode": "landscape",
-        "screen_rotate": 0
-    }
+     "id":"Z10_Play_1556637960000",
+     "type":"play",
+     "start":-1,
+     "libName":"pic",
+     "params":{
+         "zIndex":10,
+         "path":"/root/cat.jpg",
+         "top":0,
+         "left":0,
+         "height":1080,
+         "width":1920,
+         "screen_mode":"landscape",
+         "screen_rotate":0
+     }
  }
  #End
  ```
@@ -405,21 +430,21 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 序列播放(格式一)
  {
-    "type": "play",
-    "id": "PLAY_Z10_1582276422",
-    "libName": "sequence",
-    "start": -1,
-    "params": {
-        "zIndex": 10,
-        "path": "/root/a1.mp4,/root/b1.jpg,/root/a2.mp4,/root/b2.jpg",
-        "duration": 10,
-        "top": 0,
-        "left": 0,
-        "width": 1920,
-        "height": 1080,
-        "screen_mode": "landscape",
-        "screen_rotate": 0
-    }
+     "type":"play",
+     "id":"PLAY_Z10_1582276422",
+     "libName":"sequence",
+     "start":-1,
+     "params":{
+         "zIndex":10,
+         "path":"/root/a1.mp4,/root/b1.jpg,/root/a2.mp4,/root/b2.jpg",
+         "duration":10,
+         "top":0,
+         "left":0,
+         "width":1920,
+         "height":1080,
+         "screen_mode":"landscape",
+         "screen_rotate":0
+     }
  }
  #End
  ```
@@ -434,36 +459,41 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 序列播放(格式二)
  {
-    "type": "play",
-    "id": "PLAY_Z10_1582276422",
-    "libName": "sequence",
-    "start": -1,
-    "params": {
-        "zIndex": 10,
-        "top": 0,
-        "left": 0,
-        "width": 1920,
-        "height": 1080,
-        "screen_mode": "landscape",
-        "screen_rotate": 0
-    },
-    "deps": [{
-        "duration": -1,
-        "path": "/root/a1.mp4",
-        "type": "video"
-    }, {
-        "duration": 10,
-        "path": "/root/b1.jpg",
-        "type": "pic"
-    }, {
-        "duration": -1,
-        "path": "/root/a2.mp4",
-        "type": "video"
-    }, {
-        "duration": 10,
-        "path": "/root/b2.jpg",
-        "type": "pic"
-    }]
+     "type":"play",
+     "id":"PLAY_Z10_1582276422",
+     "libName":"sequence",
+     "start":-1,
+     "params":{
+         "zIndex":10,
+         "top":0,
+         "left":0,
+         "width":1920,
+         "height":1080,
+         "screen_mode":"landscape",
+         "screen_rotate":0
+     },
+     "deps":[
+         {
+             "duration":-1,
+             "path":"/root/a1.mp4",
+             "type":"video"
+         },
+         {
+             "duration":10,
+             "path":"/root/b1.jpg",
+             "type":"pic"
+         },
+         {
+             "duration":-1,
+             "path":"/root/a2.mp4",
+             "type":"video"
+         },
+         {
+             "duration":10,
+             "path":"/root/b2.jpg",
+             "type":"pic"
+         }
+     ]
  }
  #End
  ```
@@ -476,18 +506,18 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示信息提示框
  {
-    "type": "play",
-    "id": "Z3_Play_1572344489512",
-    "libName": "toast",
-    "start": -1,
-    "params": {
-       "zIndex": 3,
-       "screen_rotate": 0,
-       "screen_mode": "landscape",
-       "content": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-       "toast_type": "notice",
-       "duration": 5
-    }
+     "type":"play",
+     "id":"Z3_Play_1572344489512",
+     "libName":"toast",
+     "start":-1,
+     "params":{
+         "zIndex":3,
+         "screen_rotate":0,
+         "screen_mode":"landscape",
+         "content":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+         "toast_type":"notice",
+         "duration":5
+     }
  }
  #End
  ```
@@ -503,22 +533,22 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示摄像头
  {
-    "id": "Z9_Play_1558837960000",
-    "type": "play",
-    "start": -1,
-    "libName": "camera",
-    "params": {
-        "zIndex": 9,
-        "device": "/dev/video0",
-        "camera_width": 1280,
-        "camera_height": 720,
-        "top": 0,
-        "left": 0,
-        "width": 1920,
-        "height": 1080,
-        "screen_mode": "landscape",
-        "screen_rotate": 0
-    }
+     "id":"Z9_Play_1558837960000",
+     "type":"play",
+     "start":-1,
+     "libName":"camera",
+     "params":{
+         "zIndex":9,
+         "device":"/dev/video0",
+         "camera_width":1280,
+         "camera_height":720,
+         "top":0,
+         "left":0,
+         "width":1920,
+         "height":1080,
+         "screen_mode":"landscape",
+         "screen_rotate":0
+     }
  }
  #End
  ```
@@ -542,25 +572,25 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示文本
  {
-    "type": "play",
-    "id": "Z9_Play_1572344489512",
-    "libName": "text",
-    "start": -1,
-    "params": {
-       "top": 0,
-       "left": 0,
-       "width": 1280,
-       "height": 50,
-       "zIndex": 9,
-       "screen_rotate": 0,
-       "screen_mode": "landscape",
-       "content": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-       "color": "rgba(255, 0, 0, 100%)",
-       "bgcolor": "rgba(0, 0, 0, 0%)",
-       "font_size": 30,
-       "align": "center",
-       "style": "bold"
-    }
+     "type":"play",
+     "id":"Z9_Play_1572344489512",
+     "libName":"text",
+     "start":-1,
+     "params":{
+         "top":0,
+         "left":0,
+         "width":1280,
+         "height":50,
+         "zIndex":9,
+         "screen_rotate":0,
+         "screen_mode":"landscape",
+         "content":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+         "color":"rgba(255, 0, 0, 100%)",
+         "bgcolor":"rgba(0, 0, 0, 0%)",
+         "font_size":30,
+         "align":"center",
+         "style":"bold"
+     }
  }
  #End
  ```
@@ -586,26 +616,26 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示滚动字幕
  {
-    "type": "play",
-    "id": "Z9_Play_1572344489512",
-    "libName": "scroll",
-    "start": -1,
-    "params": {
-       "top": 0,
-       "left": 0,
-       "width": 150,
-       "height": 50,
-       "zIndex": 5,
-       "screen_rotate": 0,
-       "screen_mode": "landscape",
-       "content": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-       "color": "rgba(255, 0, 0, 100%)",
-       "bgcolor": "rgba(0,128,0,80%)",
-       "font_size": 30,
-       "style": "bold",
-       "orientation": "horizontal",
-       "speed": 1
-    }
+     "type":"play",
+     "id":"Z9_Play_1572344489512",
+     "libName":"scroll",
+     "start":-1,
+     "params":{
+         "top":0,
+         "left":0,
+         "width":150,
+         "height":50,
+         "zIndex":5,
+         "screen_rotate":0,
+         "screen_mode":"landscape",
+         "content":"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+         "color":"rgba(255, 0, 0, 100%)",
+         "bgcolor":"rgba(0,128,0,80%)",
+         "font_size":30,
+         "style":"bold",
+         "orientation":"horizontal",
+         "speed":1
+     }
  }
  #End
  ```
@@ -622,24 +652,24 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示日期时间
  {
-    "type": "play",
-    "id": "Z9_Play_1572344489512",
-    "libName": "datetime",
-    "start": -1,
-    "params": {
-       "top": 0,
-       "left": 0,
-       "width": 500,
-       "height": 50,
-       "zIndex": 9,
-       "screen_rotate": 0,
-       "screen_mode": "landscape",
-       "color": "rgba(0, 128, 0, 100%)",
-       "bgcolor": "rgba(0, 0, 0, 20%)",
-       "font_size": 30,
-       "align": "center",
-       "style": "bold"
-    }
+     "type":"play",
+     "id":"Z9_Play_1572344489512",
+     "libName":"datetime",
+     "start":-1,
+     "params":{
+         "top":0,
+         "left":0,
+         "width":500,
+         "height":50,
+         "zIndex":9,
+         "screen_rotate":0,
+         "screen_mode":"landscape",
+         "color":"rgba(0, 128, 0, 100%)",
+         "bgcolor":"rgba(0, 0, 0, 20%)",
+         "font_size":30,
+         "align":"center",
+         "style":"bold"
+     }
  }
  #End
  ```
@@ -649,20 +679,20 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示动画
  {
-    "id": "Z9_Play_1554437960000",
-    "type": "play",
-    "start": -1,
-    "libName": "gif",
-    "params": {
-        "zIndex": 9,
-        "path": "/root/aaa.gif",
-        "top": 0,
-        "left": 0,
-        "height": 100,
-        "width": 100,
-        "screen_mode": "landscape",
-        "screen_rotate": 0
-    }
+     "id":"Z9_Play_1554437960000",
+     "type":"play",
+     "start":-1,
+     "libName":"gif",
+     "params":{
+         "zIndex":9,
+         "path":"/root/aaa.gif",
+         "top":0,
+         "left":0,
+         "height":100,
+         "width":100,
+         "screen_mode":"landscape",
+         "screen_rotate":0
+     }
  }
  #End
  ```
@@ -670,20 +700,20 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 显示二维码
  {
-    "id": "Z9_Play_1558837960000",
-    "type": "play",
-    "start": -1,
-    "libName": "qrcode",
-    "params": {
-        "zIndex": 9,
-        "content": "http://www.danoonetwork.com",
-        "top": 0,
-        "left": 0,
-        "height": 100,
-        "width": 100,
-        "screen_mode": "landscape",
-        "screen_rotate": 0
-    }
+     "id":"Z9_Play_1558837960000",
+     "type":"play",
+     "start":-1,
+     "libName":"qrcode",
+     "params":{
+         "zIndex":9,
+         "content":"http://www.danoonetwork.com",
+         "top":0,
+         "left":0,
+         "height":100,
+         "width":100,
+         "screen_mode":"landscape",
+         "screen_rotate":0
+     }
  }
  #End
  ```
@@ -691,10 +721,10 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 停止全部层
  {
-   "type": "stop",
-   "params": {
-       "all": true
-   }
+     "type":"stop",
+     "params":{
+         "all":true
+     }
  }
  #End
  ```
@@ -702,10 +732,14 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 停止指定层
  {
-   "type": "stop",
-   "params": {
-       "ids": ["10", "11", "12"]
-   }
+     "type":"stop",
+     "params":{
+         "ids":[
+             "10",
+             "11",
+             "12"
+         ]
+     }
  }
  #End
  ```
@@ -713,14 +747,14 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 移动位置
  {
-   "type": "move",
-   "params": {
-     "zIndex": 10,
-     "left": 100,
-     "top": 100,
-     "height": 500,
-     "width": 500,
-   }
+     "type":"move",
+     "params":{
+         "zIndex":10,
+         "left":100,
+         "top":100,
+         "height":500,
+         "width":500
+     }
  }
  #End
  ```
@@ -728,10 +762,55 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
  ```
  // 截屏
  {
-   "type": "snap",
-   "params": {
-     "path": "/dev/shm/snap.jpg"
-   }
+     "type":"snap",
+     "params":{
+         "path":"/dev/shm/snap.jpg"
+     }
+ }
+ #End
+ ```
+ 
+ ```
+ // 查询全部层
+ {
+     "type":"query",
+     "params":{
+         "all":true
+     }
+ }
+ #End
+
+ // 返回结果
+ {
+     "data":[
+         {
+             "id":"PLAY_Z9_PIC_1591330423",
+             "params":{
+                 "height":600,
+                 "left":100,
+                 "screen_mode":"portrait",
+                 "screen_rotate":270,
+                 "top":100,
+                 "width":800,
+                 "zIndex":9
+             },
+             "type":"pic"
+         },
+         {
+             "id":"PLAY_Z10_VIDEO_1591330410",
+             "params":{
+                 "height":1080,
+                 "left":0,
+                 "screen_mode":"landscape",
+                 "screen_rotate":180,
+                 "top":0,
+                 "width":1920,
+                 "zIndex":10
+             },
+             "type":"video"
+         }
+     ],
+     "ok":true
  }
  #End
  ```
