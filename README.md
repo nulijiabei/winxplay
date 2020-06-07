@@ -297,6 +297,20 @@ winxplay/xplayctl.exe -play -libName sequence -zIndex 10 -rect "0,0,1920,1080" \
                       -duration 5
 ```
 
+```
+# 路径补全(xplay 与 xplayctl 在同一台设备时)
+cd E:\MyCore ; winxplay/xplayctl.exe -play -libName video -path ./sample.mp4 
+# 等同于
+winxplay/xplayctl.exe -play -libName video -path E:\MyCore\sample.mp4
+```
+
+```
+# 远端推流(xplay 与 xplayctl 在不同设备时)
+cd E:\MyCore ; winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path ./sample.mp4
+# 等同于
+winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path http://192.168.1.11:8711/xplay/sample.mp4
+```
+
 ---
 ### 控制指令
   
