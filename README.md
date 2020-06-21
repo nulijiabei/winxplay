@@ -90,6 +90,7 @@ winxplay/simsun.ttc        默认字体文件
  | -mute | 无 | 静音设置 |
  | -nosync | 无 | 关闭音频同步(统一时钟同步) |
  | -version | 无 | 版本号 |
+ | -cpuid | 无 | CPUID |
  | -playing | 无 | 播放测试 |
  
  ```
