@@ -4,6 +4,7 @@ goto start
 -noloop				视频在播放到结尾时是否停留在最后一帧
 -mute				静音设置
 -version			版本号
+-cpuid				CPUID
 :start
 
 winxplay.exe -R 0,0,1920,1080 -fps 30 -key xplay
