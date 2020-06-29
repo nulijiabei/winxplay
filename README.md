@@ -93,6 +93,7 @@ winxplay/simsun.ttc        默认字体文件
  | -version | 无 | 版本号 |
  | -cpuid | 无 | CPUID |
  | -playing | 无 | 播放测试 |
+ | -welcome | 无 | 欢迎页 |
  
  ```
  // 分辨率 1920x1080 【默认】
