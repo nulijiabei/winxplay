@@ -5,6 +5,7 @@ goto start
 -mute				静音设置
 -version			版本号
 -cpuid				CPUID
+-welcome			欢迎页设置
 :start
 
 winxplay.exe -R 0,0,1920,1080 -fps 30 -key xplay
