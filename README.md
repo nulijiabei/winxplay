@@ -89,7 +89,8 @@ winxplay/simsun.ttc        默认字体文件
  | -fps n | 30 | 帧率设置 |
  | -noloop | 无 | 视频在播放到结尾时是否停留在最后一帧 |
  | -mute | 无 | 静音设置 |
- | -nosync | 无 | 关闭音频同步(统一时钟同步) |
+ | -nosync | 无 | 关闭全部同步 |
+ | -nasync | 无 | 关闭音频同步(统一时钟同步) |
  | -version | 无 | 版本号 |
  | -cpuid | 无 | CPUID |
  | -playing | 无 | 播放测试 |
