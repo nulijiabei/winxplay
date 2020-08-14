@@ -406,6 +406,8 @@ winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path http://
  | --- | --- |
  | timeout | 断流超时(ms) |
  
+ > 断流超时：在视频流超时未获取数据包时，会结束当前解码器，可以通过 query 查询解码器状态
+ 
  ```
  // 流媒体播放
  {
