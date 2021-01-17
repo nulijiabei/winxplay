@@ -156,6 +156,7 @@ winxplay/simsun.ttc        默认字体文件
  | -move | 移动指令 |
  | -snap | 截屏指令 |
  | -query | 查询指令 |
+ | -change | 改变指令 |
  
  | 命令行参数(query) | 说明 |
  | --- | --- |
@@ -170,6 +171,11 @@ winxplay/simsun.ttc        默认字体文件
  | --- | --- | --- | --- |
  | -zIndex | 10  | 0 - 999  | 层 |
  | -rect   | 0,0,1920,1080  | left,top,width,height |	素材显示尺寸与位置 |
+ 
+ | 命令行参数(change) | 默认值 | 可选参数 | 说明 |
+ | --- | --- | --- | --- |
+ | -zIndex | 10  | 0 - 999  | 层 |
+ | -newIndex | 0  | 0 - 999  | 层 |
  
  | 命令行参数(snap) | 默认值 | 说明 |
  | --- | --- | --- |
@@ -279,6 +285,7 @@ winxplay/simsun.ttc        默认字体文件
 winxplay/xplayctl.exe -h # 帮助
 winxplay/xplayctl.exe -stop -all # 停止全部层
 winxplay/xplayctl.exe -query -all # 查询全部层
+winxplay/xplayctl.exe -zIndex 10 -newIndex 11 # 改变层(切换层)
 winxplay/xplayctl.exe -stop -ids "10,11,12" # 停止指定层
 winxplay/xplayctl.exe -snap -path "E:/snap.jpg" # 截屏
 winxplay/xplayctl.exe -move -zIndex 10 -rect 100,100,500,500 # 移动与改变
@@ -338,6 +345,7 @@ winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path http://
  | move | 移动 |
  | snap | 截屏 |
  | query | 查询 |
+ | change | 改变 |
  
  | 素材类型(libName) | 说明 |
  | --- | --- |
@@ -792,6 +800,26 @@ winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path http://
          "top":100,
          "height":500,
          "width":500
+     }
+ }
+ #End
+ ```
+ 
+ | 改变(change) | 值 | 说明 |
+ | --- | --- | --- |
+ | zIndex | 0 - 999 | 层 |
+ | newIndex | 0 - 999 | 层 |
+ 
+ >当目标层存在时原始层会与目标层互换  
+ >当目标层不存在时原始层改变到目标层  
+ 
+ ```
+ // 改变层
+ {
+     "type":"change",
+     "params":{
+         "zIndex":10,
+         "newIndex":11
      }
  }
  #End
