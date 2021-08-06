@@ -90,7 +90,8 @@ winxplay/simsun.ttc        默认字体文件
  | --- | --- | --- |
  | -R x,y,width,height | 0,0,1920,1080 | 分辨率设置 |
  | -fps n | 30 | 帧率设置 |
- | -noloop | 无 | 视频在播放到结尾时是否停留在最后一帧 |
+ | -noloop | 无 | 播放到结尾时是否停留在最后一帧 |
+ | -buflen | 16 | 缓冲区长度 |
  | -mute | 无 | 静音设置 |
  | -nosync | 无 | 关闭全部同步 |
  | -nasync | 无 | 关闭音频同步(统一时钟同步) |
@@ -161,10 +162,11 @@ winxplay/simsun.ttc        默认字体文件
  | --- | --- |
  | -all | 查询全部层 |
  
- | 命令行参数(stop) | 说明 |
- | --- | --- |
- | -all | 停止全部层 |
- | -ids | 停止指定层 |
+ | 命令行参数(stop) | 默认值 | 可选参数 | 说明 |
+ | --- | --- | --- | --- |
+ | -start | -1 | 无 | 停止时间(ms) |
+ | -all | 无 | 无 | 停止全部层 |
+ | -ids | 无 | 无 | 停止指定层 |
  
  | 命令行参数(move) | 默认值 | 可选参数 | 说明 |
  | --- | --- | --- | --- |
@@ -766,7 +768,9 @@ winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path http://
  ```
  // 停止全部层
  {
+     "id":"Stop_1558837960000",
      "type":"stop",
+     "start": -1,
      "params":{
          "all":true
      }
@@ -777,7 +781,9 @@ winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path http://
  ```
  // 停止指定层
  {
+     "id":"Stop_1558837960000",
      "type":"stop",
+     "start": -1,
      "params":{
          "ids":[
              "10",
