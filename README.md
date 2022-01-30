@@ -117,7 +117,7 @@ winxplay/simsun.ttc        默认字体文件
 
  ```
  // 测试素材
- copy xplay\video\yiyezi.mp4 E:\yiyezi.mp4
+ copy video\yiyezi.mp4 E:\yiyezi.mp4
  // 测试指令
  winxplay/winxplay.exe -playing E:\yiyezi.mp4
  ```
