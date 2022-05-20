@@ -82,9 +82,9 @@ winxplay/simsun.ttc        默认字体文件
  ***1. 下载程序***
  
  ```
- git clone https://github.com/nulijiabei/winxplay.git -b v1.0.20.v20210117 # (最新发布版请查看标签)
+ git clone https://github.com/nulijiabei/winxplay.git -b v1.0.22.v20220406 # (最新发布版请查看标签)
  或 
- git clone https://gitee.com/nljb/winxplay.git -b v1.0.20.v20210117 # (最新发布版请查看标签)
+ git clone https://gitee.com/nljb/winxplay.git -b v1.0.22.v20220406 # (最新发布版请查看标签)
  ```
 
  ***2. 运行程序***
@@ -206,6 +206,7 @@ winxplay/simsun.ttc        默认字体文件
  | -screen_mode   | landscape     | landscape、portrait   |	横竖屏模式 |
  | -screen_rotate | 0	            | 0、180、90、270       | 旋转角度 |
  | -path          | 无            | 无                    |	素材路径 |
+ | -offset        | -1            | 无                    |	偏移量(ms) |
  | -timeout       | -1            | 无                    | 断流超时(ms) |
 
  | 命令行参数(pic、gif) | 默认值 | 可选参数 | 说明 |
@@ -403,6 +404,10 @@ winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path http://
  #End
  ```
  
+ | 视频播放(video) | 说明 |
+ | --- | --- |
+ | offset | 偏移量(ms) |
+ 
  ```
  // 视频播放
  {
@@ -413,6 +418,7 @@ winxplay/xplayctl.exe -addr 192.168.1.11:8700 -play -libName video -path http://
      "params":{
          "zIndex":10,
          "path":"/root/sample.mp4",
+         "offset":5000,
          "left":0,
          "top":0,
          "width":1920,
