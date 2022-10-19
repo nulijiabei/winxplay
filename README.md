@@ -29,6 +29,7 @@
 | Windows 10 | 20H2 | 已测试 |
 | Windows 10 | 21H1 | 已测试 |
 | Windows 10 | 21H2 | 已测试 |
+| Windows 10 | 22H2 | 已测试 |
 | Windows 11 |      | 待测试 |
 
 ---
